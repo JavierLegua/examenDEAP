@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine on
+
+#Denegar acceso a las subredes
+RewriteCond %{REMOTE_ADDR}^192\.168\.6\.0 [OR]
+RewriteCond %{REMOTE_ADDR}^192\.168\.6\.192 [OR]
+Deny from 192.168.9.240/32
+
+#URLs amigables
+RewriteRule ^error$ var/www/html/cpifpba/error.html [L,NC]
+RewriteRule ^inicio$ retos.html [L,NC]
+RewriteRule ^retosGM$ retgramed.html [L,NC]
+RewriteRule ^profesoresGM$ profgradmed.html [L,NC]
+RewriteRule ^proyectosGM$ programed.html [L,NC]
+RewriteRule ^profesoresGS$ profgrasup.html [L,NC]
+RewriteRule ^proyectosGS$ prograsup.html [L,NC]
+RewriteRule ^retosGS$ retgrasup.html [L,NC]
+
+</IfModule>
